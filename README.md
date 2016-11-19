@@ -1,6 +1,6 @@
 # Prando
 
-Prando is a determistic pseudo-number generator using xorshift32*. It can be used to create a series of random numbers that can later be re-created given the same seed.
+Prando is a determistic *pseudo-random number generator* using xorshift32*. It can be used to create a series of random numbers that can later be re-created given the same seed.
 
 Its goals are:
 
@@ -10,7 +10,7 @@ Its goals are:
 
 The counterpoint is that it is not trying to be cryptographically strong.
 
-Prando is created in TypeScript for extra code strength, but can be used both in JavaScript and TypeScript.
+Prando is created in TypeScript for extra code strength, but can be used both in JavaScript and TypeScript. The advantage of using it in TypeScript projects is that you get the benefit of code completion ("intellisense") by default.
 
 ## Install
 
@@ -63,6 +63,8 @@ You can also reset the generator:
 ```
 rng.reset();
 ```
+
+After being reset, every call to `next()` will generate the same numbers as if the instance had just been created.
 
 ## License
 

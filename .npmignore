@@ -1,0 +1,14 @@
+.tscache
+.nyc_output
+.vscode
+.gitattributes
+node_modules
+npm-debug.log
+_*.txt
+_*.bat
+
+src
+test
+tsconfig.json
+tslint.json
+webpack.config.js

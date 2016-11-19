@@ -7,8 +7,9 @@ npm-debug.log
 _*.txt
 _*.bat
 
-src
-test
+/src
+/test
+
 tsconfig.json
 tslint.json
 webpack.config.js

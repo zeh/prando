@@ -14,28 +14,25 @@ Prando is created in TypeScript for extra code strength, but can be used both in
 
 ## Install
 
-```
-$ npm install prando
+```shell
+npm install prando
 ```
 
 ## Usage
 
 Import:
 
-```
-// Include (JavaScript ES5)
+```javascript
+// Import (JavaScript ES5)
 var Prando = require('prando').default;
 
-// Include (JavaScript ES6)
-import Prando from 'prando';
-
-// Include (TypeScript)
+// Import (JavaScript ES6 and TypeScript)
 import Prando from 'prando';
 ```
 
 Create an instance:
 
-```
+```javascript
 // Pseudo-random (time-based) seed
 let rng = new Prando();
 
@@ -48,7 +45,7 @@ let rng = new Prando("some-id");
 
 Get a number:
 
-```
+```javascript
 // Between 0 (inclusive) and 1 (exclusive)
 let num = rng.next();
 
@@ -60,11 +57,21 @@ You can generate as many pseudo-random values as you want.
 
 You can also reset the generator:
 
-```
+```javascript
 rng.reset();
 ```
 
-After being reset, every call to `next()` will generate the same numbers as if the instance had just been created.
+After being reset, every call to `next()` will generate the same numbers as if the instance had just been created. Example:
+
+```javascript
+let rng = new Prando(12345678);
+console.log(rng.next()); // 0.139410972627674
+console.log(rng.next()); // 0.08985319735711748
+
+rng.reset();
+console.log(rng.next()); // 0.139410972627674 again
+console.log(rng.next()); // 0.08985319735711748 again
+```
 
 ## License
 

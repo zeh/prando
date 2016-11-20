@@ -5,12 +5,13 @@
   "main": "./dist/Prando.js",
   "types": "./dist/src/Prando.d.ts",
   "scripts": {
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production ./node_modules/webpack/bin/webpack.js --config webpack.config.js --progress --verbose --colors --display-error-details",
+    "dev": "webpack --config webpack.config.js --progress --verbose --colors --display-error-details",
     "coverage": "nyc npm test",
     "test": "mocha test/.setup.js test/**/*-test-*.js",
     "test:watch": "mocha -w test/.setup.js test/**/*-test-*.js",
     "lint": "tslint -c tslint.json src/*.ts",
-    "prepublish": "webpack"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

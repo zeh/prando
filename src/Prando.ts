@@ -46,10 +46,10 @@ export default class Prando {
 
 	private recalculate() {
 		// Xorshift*32
+		// Based on George Marsaglia's work: http://www.jstatsoft.org/v08/i14/paper
 		this._value ^= this._value << 13;
 		this._value ^= this._value >> 17;
 		this._value ^= this._value << 5;
-		this._value *= 1597334677;
 		this._value = this._value & 0xffffffff;
 	}
 

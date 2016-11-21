@@ -82,12 +82,12 @@ After being reset, every call to `next()` will generate the same numbers as if t
 
 ```javascript
 let rng = new Prando(12345678);
-console.log(rng.next()); // 0.139410972627674
-console.log(rng.next()); // 0.08985319735711748
+console.log(rng.next()); // 0.6177754114889017
+console.log(rng.next()); // 0.5784605181725837
 
 rng.reset();
-console.log(rng.next()); // 0.139410972627674 again
-console.log(rng.next()); // 0.08985319735711748 again
+console.log(rng.next()); // 0.6177754114889017 again
+console.log(rng.next()); // 0.5784605181725837 again
 ```
 
 ## License

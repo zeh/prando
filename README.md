@@ -1,5 +1,10 @@
 # Prando
 
+[![npm](https://img.shields.io/npm/v/prando.svg)](https://www.npmjs.com/package/prando)
+[![Build Status](https://travis-ci.org/zeh/brando.svg?branch=master)](https://travis-ci.org/zeh/brando)
+[![Dependency Status](https://david-dm.org/zeh/prando.svg)](https://david-dm.org/zeh/prando)
+[![devDependency Status](https://david-dm.org/zeh/prando/dev-status.svg)](https://david-dm.org/zeh/prando.js#info=devDependencies)
+
 Prando is a determistic *pseudo-random number generator*. It can be used to create a series of random numbers that can later be re-created given the same seed.
 
 Its goals are:

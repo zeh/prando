@@ -1,7 +1,7 @@
 # Prando
 
 [![npm](https://img.shields.io/npm/v/prando.svg)](https://www.npmjs.com/package/prando)
-[![Build Status](https://travis-ci.org/zeh/brando.svg?branch=master)](https://travis-ci.org/zeh/brando)
+[![Build Status](https://travis-ci.org/zeh/prando.svg?branch=master)](https://travis-ci.org/zeh/prando)
 [![Dependency Status](https://david-dm.org/zeh/prando.svg)](https://david-dm.org/zeh/prando)
 [![devDependency Status](https://david-dm.org/zeh/prando/dev-status.svg)](https://david-dm.org/zeh/prando.js#info=devDependencies)
 

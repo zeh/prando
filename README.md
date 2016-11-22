@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/zeh/prando.svg?branch=master)](https://travis-ci.org/zeh/prando)
 [![Coverage Status](https://coveralls.io/repos/github/zeh/prando/badge.svg?branch=master)](https://coveralls.io/github/zeh/prando?branch=master)
 [![Dependency Status](https://david-dm.org/zeh/prando.svg)](https://david-dm.org/zeh/prando)
-[![devDependency Status](https://david-dm.org/zeh/prando/dev-status.svg)](https://david-dm.org/zeh/prando.js#info=devDependencies)
 
 Prando is a determistic *pseudo-random number generator*. It can be used to create a series of random numbers that can later be re-created given the same seed.
 

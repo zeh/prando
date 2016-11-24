@@ -50,7 +50,6 @@ export default class Prando {
 		this._value ^= this._value << 13;
 		this._value ^= this._value >> 17;
 		this._value ^= this._value << 5;
-		this._value = this._value & 0xffffffff;
 	}
 
 	private map(val:number, minFrom:number, maxFrom:number, minTo:number, maxTo:number) {

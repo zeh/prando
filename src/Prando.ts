@@ -36,7 +36,7 @@ export default class Prando {
 		return this.map(this._value, Prando.MIN, Prando.MAX, min, pseudoMax);
 	}
 
-	public reset() {
+	public reset():void {
 		this._value = this._seed;
 	}
 
@@ -44,7 +44,7 @@ export default class Prando {
 	// ================================================================================================================
 	// PRIVATE INTERFACE ----------------------------------------------------------------------------------------------
 
-	private recalculate() {
+	private recalculate():void {
 		// Xorshift*32
 		// Based on George Marsaglia's work: http://www.jstatsoft.org/v08/i14/paper
 		this._value ^= this._value << 13;

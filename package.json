@@ -8,6 +8,7 @@
     "build": "cross-env NODE_ENV=production ./node_modules/webpack/bin/webpack.js --config webpack.config.js --progress --verbose --colors --display-error-details",
     "dev": "webpack --config webpack.config.js --progress --verbose --colors --display-error-details",
     "coverage": "nyc npm test",
+    "coverage:report": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "test": "mocha test/.setup.js test/**/*-test-*.js",
     "test:watch": "mocha -w test/.setup.js test/**/*-test-*.js",
     "lint": "tslint -c tslint.json src/*.ts",

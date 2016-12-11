@@ -13,8 +13,14 @@
 			true,
 			"tabs"
 		],
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "case-insensitive",
+				"named-imports-order": "case-insensitive"
+			}
+		],
 		"label-position": true,
-		"label-undefined": true,
 		"linebreak-style": [true, "LF"],
 		"max-line-length": [
 			true,
@@ -38,25 +44,26 @@
 			"timeEnd",
 			"trace"
 		],
-		"no-consecutive-blank-lines": false,
+		"no-consecutive-blank-lines": [true, 2],
 		"no-construct": true,
 		"no-debugger": true,
-		"no-duplicate-key": true,
 		"no-duplicate-variable": true,
-		"no-empty": false,
+		"no-empty": true,
 		"no-eval": true,
-		"no-inferrable-types": false,
-		"no-require-imports": true,
+		"no-inferrable-types": [false],
+		"no-internal-module": true,
+		"no-namespace": true,
+		"no-require-imports": false,
+		"no-reference": true,
 		"no-shadowed-variable": true,
 		"no-string-literal": true,
 		"no-switch-case-fall-through": true,
 		"no-trailing-whitespace": true,
 		"no-unused-expression": true,
 		"no-unused-variable": true,
-		"no-unreachable": true,
 		"no-use-before-declare": true,
 		"no-var-keyword": true,
-		"object-literal-sort-keys": true,
+		"object-literal-sort-keys": false,
 		"one-line": [
 			true,
 			"check-open-brace",
@@ -67,8 +74,9 @@
 		],
 		"only-arrow-functions": [true, "allow-declarations"],
 		"quotemark": [
-			false,
+			true,
 			"double",
+			"jsx-double",
 			"avoid-escape"
 		],
 		"radix": true,

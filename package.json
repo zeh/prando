@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/zeh/prando#readme",
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
     "babel-plugin-external-helpers": "^6.18.0",

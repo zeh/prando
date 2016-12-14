@@ -57,7 +57,7 @@ export default class Prando {
      * @param array - Array of any type containing one or more candidates for random picking.
      * @return An item from the array.
      */
-    nextArrayItem<T>(array: Array<T>): T;
+    nextArrayItem<T>(array: T[]): T;
     /**
      * Generates a pseudo-random boolean.
      *

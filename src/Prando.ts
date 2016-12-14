@@ -101,7 +101,7 @@ export default class Prando {
 	 * @param array - Array of any type containing one or more candidates for random picking.
 	 * @return An item from the array.
 	 */
-	public nextArrayItem<T>(array:Array<T>):T {
+	public nextArrayItem<T>(array:T[]):T {
 		this.recalculate();
 		return array[this.nextInt(0, array.length - 1)];
 	}

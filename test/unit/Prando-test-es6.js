@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import Prando from "./../../dist/Prando";
 
 function tests() {
@@ -24,74 +23,74 @@ function tests() {
 }
 
 describe("Prando (ES6)", () => {
-	it("is a class", function() {
-		expect(Prando).to.not.a.function;
+	test("is a class", () => {
+		expect(Prando).not.toBe("function");
 	});
 
-	it("can be instantiated", () => {
-		expect(new Prando()).to.be.defined;
-		expect(new Prando()).to.be.an.instanceof(Prando);
+	test("can be instantiated", () => {
+		expect(new Prando()).toBeDefined();
+		expect(new Prando()).toBeInstanceOf(Prando);
 	});
 
-	it("should create with a random seed", () => {
+	test("should create with a random seed", () => {
 		let rng = new Prando();
 		let num1 = rng.next();
 		let num2 = rng.next();
 
-		expect(num1).to.to.be.a('number');
-		expect(num2).to.to.be.a('number');
-		expect(num2).to.not.be.equal(num1);
+		expect(typeof num1).toEqual('number');
+		expect(typeof num2).toEqual('number');
+		expect(num2).not.toEqual(num1);
 
 		rng.reset();
-		expect(rng.next()).to.be.equal(num1);
-		expect(rng.next()).to.be.equal(num2);
+		expect(rng.next()).toEqual(num1);
+		expect(rng.next()).toEqual(num2);
 	});
 
-	it("should create with a number seed", () => {
+	test("should create with a number seed", () => {
 		let rng = new Prando(12345678);
 		let num1 = rng.next();
 		let num2 = rng.next();
 
-		expect(num1).to.to.be.a('number');
-		expect(num2).to.to.be.a('number');
-		expect(num2).to.not.be.equal(num1);
+		expect(typeof num1).toEqual('number');
+		expect(typeof num2).toEqual('number');
+		expect(num2).not.toEqual(num1);
 
 		// Pre-generated values
-		expect(num1).to.to.be.equal(0.6177754114889017);
-		expect(num2).to.to.be.equal(0.5784605181725837);
+		expect(num1).toEqual(0.6177754114889017);
+		expect(num2).toEqual(0.5784605181725837);
 
 		rng.reset();
-		expect(rng.next()).to.be.equal(num1);
-		expect(rng.next()).to.be.equal(num2);
+		expect(rng.next()).toEqual(num1);
+		expect(rng.next()).toEqual(num2);
 
 		let rng2 = new Prando(97342);
-		expect(rng2.next()).to.not.be.equal(num1);
-		expect(rng2.next()).to.not.be.equal(num2);
+		expect(rng2.next()).not.toEqual(num1);
+		expect(rng2.next()).not.toEqual(num2);
 	});
 
-	it("should create with a string seed", () => {
+	test("should create with a string seed", () => {
 		let rng = new Prando("some id");
 		let num1 = rng.next();
 		let num2 = rng.next();
 
-		expect(num1).to.to.be.a('number');
-		expect(num2).to.to.be.a('number');
-		expect(num2).to.not.be.equal(num1);
+		expect(typeof num1).toEqual('number');
+		expect(typeof num2).toEqual('number');
+		expect(num2).not.toEqual(num1);
 
 		// Pre-generated values
-		expect(num1).to.to.be.equal(0.5937333613619519);
-		expect(num2).to.to.be.equal(0.08739619215191254);
+		expect(num1).toEqual(0.5937333613619519);
+		expect(num2).toEqual(0.08739619215191254);
 
 		rng.reset();
-		expect(rng.next()).to.be.equal(num1);
-		expect(rng.next()).to.be.equal(num2);
+		expect(rng.next()).toEqual(num1);
+		expect(rng.next()).toEqual(num2);
 
 		let rng2 = new Prando("other id");
-		expect(rng2.next()).to.not.be.equal(num1);
-		expect(rng2.next()).to.not.be.equal(num2);
+		expect(rng2.next()).not.toEqual(num1);
+		expect(rng2.next()).not.toEqual(num2);
 	});
 
-	it("should skip ahead", () => {
+	test("should skip ahead", () => {
 		let seed = Math.random() * 10000;
 
 		let rng = new Prando(seed);
@@ -102,33 +101,33 @@ describe("Prando (ES6)", () => {
 		let num2 = rng.next();
 
 		let rng2 = new Prando(seed);
-		expect(rng2.next()).to.be.equal(num1);
+		expect(rng2.next()).toEqual(num1);
 		for (let i = 0; i < 10; i++) {
 			rng2.skip();
 		}
-		expect(rng2.next()).to.be.equal(num2);
+		expect(rng2.next()).toEqual(num2);
 		rng2.reset();
 		rng2.skip(11);
-		expect(rng2.next()).to.be.equal(num2);
+		expect(rng2.next()).toEqual(num2);
 	});
 
-	it("should generate integers", () => {
+	test("should generate integers", () => {
 		let rng = new Prando(1337);
 
 		let num1 = rng.nextInt(5, 15);
 		let num2 = rng.nextInt(5, 15);
 
-		expect(num1).to.to.be.a('number');
-		expect(num2).to.to.be.a('number');
-		expect(num2).to.not.be.equal(num1);
+		expect(typeof num1).toEqual('number');
+		expect(typeof num2).toEqual('number');
+		expect(num2).not.toEqual(num1);
 
 		// Pre-generated values
-		expect(num1).to.to.be.equal(11);
-		expect(num2).to.to.be.equal(8);
+		expect(num1).toEqual(11);
+		expect(num2).toEqual(8);
 
 		rng.reset();
-		expect(rng.nextInt(5, 15)).to.be.equal(num1);
-		expect(rng.nextInt(5, 15)).to.be.equal(num2);
+		expect(rng.nextInt(5, 15)).toEqual(num1);
+		expect(rng.nextInt(5, 15)).toEqual(num2);
 
 		// Within range
 		let anyFloat = false;
@@ -142,74 +141,73 @@ describe("Prando (ES6)", () => {
 			if (f > 42) anyHigher = true;
 		}
 
-		expect(anyFloat).to.be.equal(false);
-		expect(anyLower).to.be.equal(false);
-		expect(anyHigher).to.be.equal(false);
+		expect(anyFloat).toEqual(false);
+		expect(anyLower).toEqual(false);
+		expect(anyHigher).toEqual(false);
 	});
 
-	it("should generate booleans", () => {
+	test("should generate booleans", () => {
 		let rng = new Prando(31339);
 
-		expect(rng.nextBoolean()).to.be.equal(false);
-		expect(rng.nextBoolean()).to.be.equal(true);
-		expect(rng.nextBoolean()).to.be.equal(true);
+		expect(rng.nextBoolean()).toEqual(false);
+		expect(rng.nextBoolean()).toEqual(true);
+		expect(rng.nextBoolean()).toEqual(true);
 		rng.reset();
-		expect(rng.nextBoolean()).to.be.equal(false);
-		expect(rng.nextBoolean()).to.be.equal(true);
-		expect(rng.nextBoolean()).to.be.equal(true);
+		expect(rng.nextBoolean()).toEqual(false);
+		expect(rng.nextBoolean()).toEqual(true);
+		expect(rng.nextBoolean()).toEqual(true);
 	});
 
-	it("should generate chars", () => {
+	test("should generate chars", () => {
 		let rng = new Prando(31338);
 
-		expect(rng.nextChar()).to.be.equal("8");
-		expect(rng.nextChar()).to.be.equal("a");
+		expect(rng.nextChar()).toEqual("8");
+		expect(rng.nextChar()).toEqual("a");
 		rng.reset();
-		expect(rng.nextChar()).to.be.equal("8");
-		expect(rng.nextChar()).to.be.equal("a");
+		expect(rng.nextChar()).toEqual("8");
+		expect(rng.nextChar()).toEqual("a");
 
 		rng.reset();
-		expect(rng.nextChar("a")).to.be.equal("a");
-		expect(rng.nextChar("_")).to.be.equal("_");
-		expect(rng.nextChar("123")).to.be.equal("2");
-		expect(rng.nextChar("123")).to.be.equal("1");
+		expect(rng.nextChar("a")).toEqual("a");
+		expect(rng.nextChar("_")).toEqual("_");
+		expect(rng.nextChar("123")).toEqual("2");
+		expect(rng.nextChar("123")).toEqual("1");
 	});
 
-	it("should generate strings", () => {
+	test("should generate strings", () => {
 		let rng = new Prando(31337);
 
-		expect(rng.nextString()).to.be.equal("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).to.be.equal("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
+		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
 		rng.reset();
-		expect(rng.nextString()).to.be.equal("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).to.be.equal("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
+		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
 
 		rng.reset();
-		expect(rng.nextString(1, "a")).to.be.equal("a");
-		expect(rng.nextString(2, "b")).to.be.equal("bb");
-		expect(rng.nextString(6, "123")).to.be.equal("231331");
+		expect(rng.nextString(1, "a")).toEqual("a");
+		expect(rng.nextString(2, "b")).toEqual("bb");
+		expect(rng.nextString(6, "123")).toEqual("231331");
 	});
 
-	it("should get from an array", () => {
+	test("should get from an array", () => {
 		let rng = new Prando(31339);
 		const lst1 = ["1", "2", "3", "4", "5"];
 		const lst2 = ["a", "b", "c", "d", "e"];
 
-		expect(rng.nextArrayItem(lst1)).to.be.equal("5");
-		expect(rng.nextArrayItem(lst1)).to.be.equal("4");
+		expect(rng.nextArrayItem(lst1)).toEqual("5");
+		expect(rng.nextArrayItem(lst1)).toEqual("4");
 		rng.reset();
-		expect(rng.nextArrayItem(lst2)).to.be.equal("e");
-		expect(rng.nextArrayItem(lst2)).to.be.equal("d");
+		expect(rng.nextArrayItem(lst2)).toEqual("e");
+		expect(rng.nextArrayItem(lst2)).toEqual("d");
 
-		expect(rng.nextArrayItem(lst2)).to.be.equal("a");
-		expect(rng.nextArrayItem(lst2)).to.be.equal("e");
-		expect(rng.nextArrayItem(lst2)).to.be.equal("e");
-		expect(rng.nextArrayItem(lst2)).to.be.equal("a");
-		expect(rng.nextArrayItem(lst2)).to.be.equal("a");
+		expect(rng.nextArrayItem(lst2)).toEqual("a");
+		expect(rng.nextArrayItem(lst2)).toEqual("e");
+		expect(rng.nextArrayItem(lst2)).toEqual("e");
+		expect(rng.nextArrayItem(lst2)).toEqual("a");
+		expect(rng.nextArrayItem(lst2)).toEqual("a");
 	});
 
-	it("should randomize more or less evenly", function() {
-		this.timeout(10 * 1000);
+	test("should randomize more or less evenly", () => {
 		const totals = [];
 		const tests = 6000;
 		const ranges = 10;
@@ -222,12 +220,12 @@ describe("Prando (ES6)", () => {
 		for (let i = 0; i < totals.length; i++) {
 			// Percentage off the expected amount
 			const delta = (totals[i] - tests) / tests;
-			expect(delta).to.be.within(-0.04, 0.04);
+			expect(delta).toBeLessThan(0.04);
+			expect(delta).toBeGreaterThan(-0.04);
 		}
-	});
+	}, 10 * 1000);
 
-	it("should allow a minimum 2^29-1 sequence", function() {
-		this.timeout(2 * 60 * 60 * 1000);
+	test("should allow a minimum 2^29-1 sequence", () => {
 		const rng = new Prando(237622);
 		const num = rng.next();
 
@@ -241,6 +239,6 @@ describe("Prando (ES6)", () => {
 			}
 		}
 
-		expect(repeatPos).to.be.above(Math.pow(2, 29) - 2);
-	});
+		expect(repeatPos).toBeGreaterThan(Math.pow(2, 29) - 2);
+	}, 2 * 60 * 60 * 1000);
 });

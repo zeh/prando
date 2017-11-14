@@ -1,9 +1,8 @@
 .tscache
-.nyc_output
 .travis.yml
-.coveralls.yml
 .vscode
 .gitattributes
+coverage
 node_modules
 npm-debug.log
 _*.txt

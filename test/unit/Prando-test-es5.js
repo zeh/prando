@@ -1,4 +1,4 @@
-var Prando = require("./../../dist/Prando.js").default;
+var Prando = require("./../../dist/Prando.umd");
 
 describe("Prando (ES5)", function() {
 	test("is a class", function() {

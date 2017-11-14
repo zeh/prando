@@ -1,4 +1,4 @@
-import Prando from "./../../dist/Prando";
+var Prando = require("./../../dist/Prando.umd");
 
 function tests() {
 	const rng = new Prando(237622);

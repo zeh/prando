@@ -15,7 +15,6 @@ export default class Prando {
 	 *
 	 * @param seed - A number or string seed that determines which pseudo-random number sequence will be created. Defaults to current time.
 	 */
-	constructor();
 	constructor(seed?: number | string) {
 		if (typeof (seed) === "string") {
 			// String seed

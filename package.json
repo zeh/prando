@@ -16,7 +16,7 @@
 		"prepublish": "npm run build && npm run build:declarations"
 	},
 	"files": [
-		"src",
+		"src/**/*.d.ts",
 		"dist",
 		"README.md"
 	],

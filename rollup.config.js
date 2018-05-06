@@ -4,11 +4,9 @@ import pkg from "./package.json";
 export default {
 	input: "src/Prando.ts",
 	output: [
-		{ file: pkg.module, format: "es" },
-		{ file: pkg.main, format: "umd" }
+		{ name: "Prando", sourcemap: true, file: pkg.module, format: "es" },
+		{ name: "Prando", sourcemap: true, file: pkg.main, format: "umd" },
 	],
-	name: "Prando",
-	sourcemap: true,
 	plugins: [
 		typescript({
 			typescript: require("typescript")

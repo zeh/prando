@@ -1,6 +1,6 @@
 {
 	"name": "prando",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"description": "Deterministic pseudo-random number generator for JavaScript and TypeScript",
 	"main": "./dist/Prando.umd.js",
 	"module": "./dist/Prando.es.js",

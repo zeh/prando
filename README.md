@@ -5,7 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/zeh/prando/badge.svg?branch=master)](https://coveralls.io/github/zeh/prando?branch=master)
 [![Dependency Status](https://david-dm.org/zeh/prando.svg)](https://david-dm.org/zeh/prando)
 
-Prando is a determistic *pseudo-random number generator*. It can be used to create a series of random numbers that can later be re-created given the same seed.
+Prando is a deterministic *pseudo-random number generator*. It can be used to create a series of random numbers that can later be re-created given the same seed.
 
 Its goals are:
 

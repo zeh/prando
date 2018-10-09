@@ -21,10 +21,10 @@ export default class Prando {
 			this._seed = this.hashCode(seed);
 		} else if (typeof (seed) === "number") {
 			// Numeric seed
-			this._seed = seed;
+			this._seed = this.getSafeSeed(seed);
 		} else {
 			// Pseudo-random seed
-			this._seed = Prando.MIN + Math.floor((Prando.MAX - Prando.MIN) * Math.random());
+			this._seed = this.getSafeSeed(Prando.MIN + Math.floor((Prando.MAX - Prando.MIN) * Math.random()));
 		}
 		this.reset();
 	}
@@ -168,7 +168,12 @@ export default class Prando {
 				hash |= 0;
 			}
 		}
-		return hash;
+		return this.getSafeSeed(hash);
+	}
+
+	private getSafeSeed(seed: number) {
+		if (seed === 0) return 1;
+		return seed;
 	}
 }
 

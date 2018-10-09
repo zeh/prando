@@ -41,12 +41,12 @@
 	},
 	"homepage": "https://github.com/zeh/prando#readme",
 	"devDependencies": {
-		"coveralls": "^3.0.1",
-		"jest": "^22.4.3",
-		"rollup": "^0.58.2",
-		"rollup-plugin-buble": "^0.19.2",
-		"rollup-plugin-typescript": "^0.8.1",
-		"tslint": "^5.10.0",
-		"typescript": "^2.8.3"
+		"coveralls": "^3.0.2",
+		"jest": "^23.6.0",
+		"rollup": "^0.66.5",
+		"rollup-plugin-buble": "^0.19.4",
+		"rollup-plugin-typescript": "^1.0.0",
+		"tslint": "^5.11.0",
+		"typescript": "^3.1.1"
 	}
 }

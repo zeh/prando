@@ -1,7 +1,7 @@
 <?php
 /*
  * @Author: Sushma Kure
- * @ProblemStatement: Merge Sort in PHP using divide and conquer algorithm
+ * @ProblemStatement: Quick Sort in PHP using divide and conquer algorithm
  * @Algorithm: The algorithm picks a pivot element, rearranges the array elements in such a way that all 
  * elements smaller than the picked pivot element move to left side of pivot, and all greater elements 
  * move to right side. Finally, the algorithm recursively sorts the subarrays on left and right of pivot 

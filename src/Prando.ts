@@ -24,7 +24,7 @@ export default class Prando {
 			this._seed = seed;
 		} else {
 			// Pseudo-random seed
-			this._seed = Date.now() + Math.random();
+			this._seed = Prando.MIN + Math.floor((Prando.MAX - Prando.MIN) * Math.random());
 		}
 		this.reset();
 	}

@@ -85,8 +85,8 @@ describe("Prando (ES6)", () => {
 		expect(num2).not.toEqual(num1);
 
 		// Pre-generated values
-		expect(num1).toEqual(0.5937333613619519);
-		expect(num2).toEqual(0.08739619215191254);
+		expect(num1).toEqual(0.7342542618825693);
+		expect(num2).toEqual(0.6224128456372797);
 
 		rng.reset();
 		expect(rng.next()).toEqual(num1);

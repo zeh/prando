@@ -148,11 +148,16 @@ export default class Prando {
 	// PRIVATE INTERFACE ----------------------------------------------------------------------------------------------
 
 	private recalculate(): void {
+		this._value = this.xorshift(this._value);
+	}
+
+	private xorshift(value: number) {
 		// Xorshift*32
 		// Based on George Marsaglia's work: http://www.jstatsoft.org/v08/i14/paper
-		this._value ^= this._value << 13;
-		this._value ^= this._value >> 17;
-		this._value ^= this._value << 5;
+		value ^= value << 13;
+		value ^= value >> 17;
+		value ^= value << 5;
+		return value;
 	}
 
 	private map(val: number, minFrom: number, maxFrom: number, minTo: number, maxTo: number) {
@@ -166,6 +171,7 @@ export default class Prando {
 			for (let i = 0; i < l; i++) {
 				hash = ((hash << 5) - hash) + str.charCodeAt(i);
 				hash |= 0;
+				hash = this.xorshift(hash);
 			}
 		}
 		return this.getSafeSeed(hash);

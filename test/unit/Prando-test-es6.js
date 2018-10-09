@@ -249,6 +249,23 @@ describe("Prando (ES6)", () => {
 		expect(repeatPos).toBeGreaterThan(Math.pow(2, 29) - 2);
 	}, 2 * 60 * 60 * 1000);
 
+	test("should allow a minimum 2^29-1 sequence, with a string seed", () => {
+		const rng = new Prando("hello");
+		const num = rng.next();
+
+		// Create a sequence
+		let repeatPos = -1;
+		let l = Math.pow(2, 30);
+		for (let i = 1; i < l; i++) {
+			if (rng.next() === num) {
+				repeatPos = i;
+				break;
+			}
+		}
+
+		expect(repeatPos).toBeGreaterThan(Math.pow(2, 29) - 2);
+	}, 2 * 60 * 60 * 1000);
+
 	test("should avoid similarities from strings seeds", () => {
 		const p1 = new Prando("1");
 		const p2 = new Prando("2");

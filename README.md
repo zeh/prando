@@ -93,7 +93,7 @@ Generate a new Prando pseudo-random number generator.
 
 Parameters:
 
-* `seed`: A number or string seed that determines which pseudo-random number sequence will be created. Defaults to current time.
+* `seed`: A number or string seed that determines which pseudo-random number sequence will be created. Defaults to a random seed based on `Math.random()`.
 
 Return:
 
@@ -159,7 +159,7 @@ Returns:
 
 Picks a pseudo-random item from an array. The array is left unmodified.
 
-Note: keep in mind that while the returned item will be random enough, picking one item from the array at a time does not guarantee nor imply that a sequence of random non-repeating items will be picked. If you want to *pick items in a random order* from an array, instead of *pick one random item from an array*, it's best to apply a *shuffle* transformation to the array instead, then read it linearly.
+Note: keep in mind that while the returned item will be random enough, picking one item from the array at a time does not guarantee nor imply that a sequence of random non-repeating items will be picked. If you want to *pick items in a random order* from an array, instead of *picking one random item from an array*, it's best to apply a *shuffle* transformation to the array instead, then read it linearly.
 
 Parameters:
 

@@ -32,6 +32,13 @@ describe("Prando (ES6)", () => {
 		expect(new Prando()).toBeInstanceOf(Prando);
 	});
 
+	test("should recover from a bad seed", () => {
+		const p1 = new Prando("");
+		expect(p1.next()).not.toEqual(p1.next());
+		const p2 = new Prando(0);
+		expect(p2.next()).not.toEqual(p2.next());
+	});
+
 	test("should create with a random seed", () => {
 		let rng = new Prando();
 		let num1 = rng.next();
@@ -241,4 +248,14 @@ describe("Prando (ES6)", () => {
 
 		expect(repeatPos).toBeGreaterThan(Math.pow(2, 29) - 2);
 	}, 2 * 60 * 60 * 1000);
+
+	test("should avoid similarities from strings seeds", () => {
+		const p1 = new Prando("1");
+		const p2 = new Prando("2");
+		expect(p1.nextInt(0, 100)).not.toEqual(p2.nextInt(0, 100));
+
+		const p3 = new Prando("41");
+		const p4 = new Prando("42");
+		expect(p3.nextInt(0, 100)).not.toEqual(p4.nextInt(0, 100));
+	});
 });

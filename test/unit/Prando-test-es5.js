@@ -9,4 +9,11 @@ describe("Prando (ES5)", function() {
 		expect(new Prando()).toBeDefined();
 		expect(new Prando()).toBeInstanceOf(Prando);
 	});
+
+	test("should recover from a bad seed", function() {
+		const p1 = new Prando("");
+		expect(p1.next()).not.toEqual(p1.next());
+		const p2 = new Prando(0);
+		expect(p2.next()).not.toEqual(p2.next());
+	});
 });

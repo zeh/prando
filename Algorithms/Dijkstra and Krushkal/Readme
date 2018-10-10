@@ -1,0 +1,5 @@
+"graph.h" consists of the declarations of the functions that are required for implementing the dijkstra and krushkal alorithm
+
+"func.cpp" consists of the function defnitions that are declared in the graph.h
+
+"graph.cpp" shows a sample implementation of the code for dijkstra and krushkal and makefile that is required is also uploaded.

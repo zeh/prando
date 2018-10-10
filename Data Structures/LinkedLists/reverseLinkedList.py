@@ -8,7 +8,7 @@ class Node:
   
 class LinkedList: 
   
-    # This is a function to initialise head 
+    # This is the function to initialise head 
     def __init__(self): 
         self.head = None
   

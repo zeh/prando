@@ -1,0 +1,6 @@
+"BST.h" consists of function declarations.
+"BST.cpp" consists of function defnitions.
+"main.cpp" shows the implementation of BST based on the input present in input1.txt file.
+Makefile is their for easy running of the code.
+
+Remaining files are some random input files.

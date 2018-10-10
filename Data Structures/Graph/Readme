@@ -1,0 +1,9 @@
+"graph.h" represents the ADT(Abstract Data Type) of graph data structure.
+graph.h consists of a class "graph" which contains the basic functions that a graph needs.
+  Basic functions :
+    buildgraph -> to build a graph from given input
+    display -> displays the data present in the node
+    initial -> to initialise the graph
+    etc.,
+
+graph.cpp consists of the definitions of the functions that are declared in graph.h (user defined) library.

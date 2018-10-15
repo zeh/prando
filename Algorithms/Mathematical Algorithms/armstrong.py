@@ -1,5 +1,6 @@
-limit = int(input("Input the range: "))
-for i in range(1, limit + 1):
+lower = int(input("Input the start point: "))
+limit = int(input("Input the end point: "))
+for i in range(lower, limit + 1):
    order = len(str(i))
    sum = 0
    temp = i

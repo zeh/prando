@@ -1,10 +1,11 @@
 #Program to find perfect numbers within a given range l,m (inclusive) in python
 
 #This code is made for the issue #184(Print all the perfect numbers in a given range.)
-l = 1
-m = 500
+l = int(input())
+m = int(input())
 perfect_numbers = []
-
+if l > m:
+    l, m = m, l
 for j in range(l,m+1):
     
     divisor = []

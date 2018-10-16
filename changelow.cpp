@@ -15,6 +15,10 @@ for(i=0;a[i]!='\0';i++)
  {j-=32;
  a[i]=char(j);
  }
+ else
+ {j+=32;
+  a[i]=char(j);
+ }
 }
 return 0;
 }

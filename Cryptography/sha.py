@@ -1,21 +1,5 @@
-Skip to content
 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
-    @tushar1210 Sign out
-0
-0 2,420 tushar1210/cosmos
-forked from OpenGenus/cosmos
-    Code  Pull requests 0  Projects 0  Wiki  Insights  Settings
-cosmos/code/cryptography/src/sha/sha_256/sha_256.py
-2b5b3e7  on 6 Jul
-@yashshah1 yashshah1 added sha_256
-
-226 lines (193 sloc)  6.7 KB
 initial_hash_values = [
                        '6a09e667', 'bb67ae85', '3c6ef372', 'a54ff53a',
                        '510e527f', '9b05688c', '1f83d9ab', '5be0cd19'
@@ -241,16 +225,3 @@ final_hash = [dec_to_hex(hash_0),
 return(''.join(final_hash))
 
 assert(sha_256('cosmos')) == '4cbe19716b1aa73a67dc4b28c34391879b503259fc76852082b4dafcf0de85b2'
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.

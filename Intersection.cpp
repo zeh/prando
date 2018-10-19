@@ -26,7 +26,7 @@ public:
 		Node(int d);
 	};
 
-lists head1 and head2 */
+/* lists head1 and head2 */ // Commented out this line, it was open indicating code, while it should've been a comment
 public:
 	virtual int getNode();
 

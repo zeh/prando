@@ -26,7 +26,7 @@ void main()
 		    arr[i] = temp;
 		}
 	}
-	printf("1, 35, 100, 2300, 45, 23, 2, 0, 89, 233");
+	printf("%d %d %d %d %d %d %d %d %d" 1, 35, 100, 2300, 45, 23, 2, 0, 89, 233);
 	printf("\n Answer is  %d",arr[size-1]);
 
 getch();

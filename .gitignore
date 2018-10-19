@@ -5,3 +5,6 @@
 
 # Eclipse
 .settings/
+
+# General
+.DS_Store

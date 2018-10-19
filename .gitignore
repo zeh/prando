@@ -1,0 +1,7 @@
+# Add metadata files which are not necessary for this project.
+
+# JetBrains
+.idea/
+
+# Eclipse
+.settings/

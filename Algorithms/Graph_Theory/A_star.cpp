@@ -152,6 +152,11 @@ void A_Star()
 int main()
 {
     cin>>rows>>cols;
+    
+    /* Description of the Grid- 
+     1--> The cell is blocked 
+     0--> The cell is not blocked    
+     */
     for(int i = 0; i < rows; i++)
         for(int j = 0; j < cols ; j++)
             cin>>grid[i][j];

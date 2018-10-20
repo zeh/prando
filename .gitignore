@@ -8,3 +8,6 @@
 
 # General
 .DS_Store
+
+# Java
+out/

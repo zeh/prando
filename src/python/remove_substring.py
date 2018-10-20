@@ -1,5 +1,5 @@
 import re
 
 
-def remove_extra(str, substr):
+def remove_substring(str, substr):
     return re.sub(substr, '', str)

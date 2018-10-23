@@ -49,7 +49,7 @@ class Middle {
         int size;
         System.out.println("Enter the size:");
         size = Sc.nextInt();
-        for( int i = 0; i< size; i++) {
+        for( int s = 0; s < size; s++) {
             System.out.println("Enter the data");
             int data = Sc.nextInt();
             ll.insertAtEnd(data);

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void displayElements(vector<int> vec){
+void displayElements(vector<int> vec){  // Function to display the elements
 	for(auto n : vec)
 		cout<<n<<" ";
 	cout<<endl;

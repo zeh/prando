@@ -7,8 +7,8 @@ class Node {
 		this.data = data;
 		this.next = null;
 	}
-	public Node(int data) {
-		this.data = data;
+	public Node(int d) {
+		this.data = d;
 	}
 }
 

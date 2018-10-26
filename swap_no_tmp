@@ -1,0 +1,6 @@
+a = int(input("First num: "))
+b = int(input("Second num: "))
+
+print("Before swap\na={} b={}".format(a,b))
+a, b = b, a
+print("After swap\na={} b={}".format(a,b))

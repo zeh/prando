@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+class A
+{
+ int x,n,k,a[2000],i,j;
+ public:A(int o)
+ {k=o;}
+ void binary_equiv()
+ {i=0;
+ x=k;
+ while(x!=1)
+ {a[i]=x%2;
+ x/=2;
+ i+=1;}}
+ void display()
+ {
+ int r=1;
+ for(j=i-1;j>=0;j--)
+ {
+     r++;
+ }
+ n=8-r;
+
+ cout<<"\nThe binary equivalent of "<<k<<" is :";
+ j=1;
+ while(j<=n)
+{ cout<<"0";
+  j+=1;}
+  cout<<"1";
+ for(j=i-1;j>=0;j--)
+{cout<<a[j];}
+}
+};
+
+int main()
+{
+ int num;
+ cout<<"\nEnter the decimal number:";
+ cin>>num;
+ A obj(num);
+ obj.binary_equiv();
+ obj.display();
+}

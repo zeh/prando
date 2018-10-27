@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>V[500],trans[500];
+stack<int>st1;                           //use vector for optimization
+int vis[500]={0};
+void dfs2(int src)
+{
+
+    vis[src]=1;
+    for(int i=0;i<trans[src].size();++i)
+    {
+        if(!vis[trans[src][i]])
+            dfs2(trans[src][i]);
+    }
+
+    cout<<src<<" ";
+}
+void dfs1(int src)
+{
+    vis[src]=1;
+    for(int j=0;j<V[src].size();++j)
+        if(!vis[V[src][j]])
+            dfs1(V[src][j]);
+    st1.push(src);
+   cout<<st1.top()<<" ";
+}
+int main()
+{
+    int nodes,edges,i,q,j,x,y;
+    cin>>nodes>>edges;                 //nodes starting with zero
+    for(i=0;i<edges;++i)
+    {
+        cin>>x>>y;
+        V[x].push_back(y);
+        trans[y].push_back(x);
+    }
+    cout<<"the adjacency list is:\n";
+    for(i=0;i<nodes;++i)
+    {
+        cout<<i<<"--> ";
+        for(j=0;j<V[i].size();++j)
+            cout<<V[i][j]<<" ";
+                cout<<endl;
+    }
+    cout<<"the stack will be\n";
+    for(i=0;i<nodes;++i)
+        if(!vis[i])
+       dfs1(i);
+        cout<<endl;
+        memset(vis,0,sizeof(vis));
+       cout<<"the components are:\n";
+   while(!st1.empty())
+   {
+       q=st1.top();
+       st1.pop();
+       if(!vis[q]){
+       dfs2(q);
+    cout<<endl;
+       }
+   }
+
+    return 0;
+}

@@ -1,0 +1,22 @@
+class stack:
+	def __init__(self):
+		self.stack=[]
+	def push(self,dataval):
+		if dataval not in self.stack:
+			self.stack.append(dataval)
+			return True
+		else:
+			return False
+	def peek(self):
+		return self.stack[0]
+	def pop(self):
+		if self.stack==[]:
+			return underflow
+		else:
+			self.stack.pop()
+AStack= stack()
+AStack.push("Mon")
+AStack.push("kj")
+AStack.peek()
+print AStack.peek()
+print AStack.pop()

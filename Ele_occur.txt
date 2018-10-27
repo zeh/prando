@@ -1,0 +1,31 @@
+# include <bits/stdc++.h>
+using namespace std;
+int count_occr(int arr[], int x, int n)
+{
+  int *low = lower_bound(arr, arr+n, x);
+  if (low == (arr + n) || *low != x)
+     return 0;
+  int *high = upper_bound(low, arr+n, x);
+  return high - low;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    cout<<"Enter size of Array :";
+   int n;
+   cin>>n;
+   int arr[n];
+   cout<<"Enter Array elements :"<<endl;
+  for(int i=0;i<n;i++)
+  cin>>arr[i];
+  cout<<"Enter element to search"<<endl;
+  int x;
+  cin>>x;
+  int c = count_occr(arr, x, n);
+  printf(" %d occurs %d times\n", x, c);
+    }
+  return 0;
+}

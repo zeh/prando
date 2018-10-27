@@ -1,0 +1,52 @@
+{
+	"name": "prando",
+	"version": "4.0.0",
+	"description": "Deterministic pseudo-random number generator for JavaScript and TypeScript",
+	"main": "./dist/Prando.umd.js",
+	"module": "./dist/Prando.es.js",
+	"types": "./src/Prando.d.ts",
+	"scripts": {
+		"build": "rollup -c",
+		"build:declarations": "tsc -d",
+		"dev": "rollup -c -w",
+		"test": "jest --testMatch **/test/**/*-test-*.js",
+		"test:coverage": "npm run test -- --coverage",
+		"test:coverage:coveralls": "npm run test -- --coverage --coverageReporters=text-lcov | coveralls",
+		"test:watch": "npm run test -- --watchAll",
+		"lint": "tslint -c tslint.json src/*.ts",
+		"prepublish": "npm run build && npm run build:declarations"
+	},
+	"files": [
+		"src/**/*.d.ts",
+		"dist",
+		"README.md"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zeh/prando.git"
+	},
+	"keywords": [
+		"rng",
+		"prng",
+		"random",
+		"random number generator",
+		"deterministic",
+		"aleatory",
+		"seed"
+	],
+	"author": "Zeh Fernando <npm@zehfernando.com> http://zehfernando.com",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/zeh/prando/issues"
+	},
+	"homepage": "https://github.com/zeh/prando#readme",
+	"devDependencies": {
+		"coveralls": "^3.0.2",
+		"jest": "^23.6.0",
+		"rollup": "^0.66.5",
+		"rollup-plugin-buble": "^0.19.4",
+		"rollup-plugin-typescript": "^1.0.0",
+		"tslint": "^5.11.0",
+		"typescript": "^3.1.1"
+	}
+}

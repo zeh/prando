@@ -5,7 +5,7 @@ We then look for unbroken subsequences of numbers, where the numbers within each
 subsequence are monotonically increasing. Such a subsequence is called a run up, and it
 may be as long as one number.
 For example, let us consider the sequence: 0.8, 0.7, 0.75, 0.55, 0.6, 0.7, 0.3, 0.4,
-0.5. Starting from the beginning of this sequence, i.e., from the left, we find a run up of 
+0.5. Starting from the beginning of this sequence, i.e., from the left, we find a run up of
 44 Computer Simulation Techniques
 length 1, i.e. 0.8, then a run up of length 2, i.e. 0.7, 0.75, followed by two successive run
 ups of length 3, i.e. 0.55, 0.6, 0.7, and 0.3, 0.4, 0.5.
@@ -24,4 +24,5 @@ coefficient is obtained as the (i,j)th element of the matrix
   27892 55789 83685 111580 139476 172860
  ,
 and the bi coefficient is obtained as the ith element of the vector
-(b1,...,b6) = (1/6 , 5/24 ,11/120 ,19/720 , 29/5040 , 1/840 ) 
+(b1,...,b6) = (1/6 , 5/24 ,11/120 ,19/720 , 29/5040 , 1/840 )
+

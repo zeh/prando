@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Add metadata files which are not necessary for this project.
 
 # JetBrains
@@ -11,3 +12,15 @@
 
 # Java
 out/
+=======
+.tscache
+coverage
+dist
+node_modules
+npm-debug.log
+src/*.js
+src/*.d.ts
+_*.txt
+_*.bat
+.coveralls.yml
+>>>>>>> 5284ab08d4cf15734c7b14518a6cc1da3e45e4e6

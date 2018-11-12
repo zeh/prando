@@ -48,7 +48,7 @@
 		"coveralls": "^3.0.2",
 		"jest": "^23.6.0",
 		"regenerator-runtime": "^0.12.1",
-		"rollup": "^0.66.6",
+		"rollup": "^0.67.1",
 		"rollup-plugin-buble": "^0.19.4",
 		"rollup-plugin-typescript": "^1.0.0",
 		"tslint": "^5.11.0",

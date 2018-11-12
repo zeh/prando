@@ -8,3 +8,4 @@ src/*.d.ts
 _*.txt
 _*.bat
 .coveralls.yml
+.rpt2_cache

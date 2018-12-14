@@ -1,18 +1,14 @@
 {
 	"extends": ["tslint:recommended"],
 	"rules": {
+		"arrow-parens": true,
 		"class-name": true,
-		"comment-format": [
-			true,
-			"check-space"
-		],
+		"comment-format": [true, "check-space"],
 		"curly": false,
 		"eofline": true,
 		"forin": false,
-		"indent": [
-			true,
-			"tabs"
-		],
+		"indent": [true, "tabs"],
+		"interface-name": [true, "always-prefix"],
 		"ordered-imports": [
 			true,
 			{
@@ -22,28 +18,35 @@
 		],
 		"label-position": true,
 		"linebreak-style": [true, "LF"],
-		"max-line-length": [
-			true,
-			140
-		],
+		"max-line-length": [true, 170],
 		"member-access": true,
 		"member-ordering": [
 			true,
-			"public-before-private",
-			"static-before-instance",
-			"variables-before-functions"
+			{
+				"order": [
+					"public-static-field",
+					"protected-static-field",
+					"private-static-field",
+					"public-instance-field",
+					"protected-instance-field",
+					"private-instance-field",
+					"public-static-method",
+					"protected-static-method",
+					"private-static-method",
+					"public-constructor",
+					"public-instance-method",
+					"protected-constructor",
+					"protected-instance-method",
+					"private-constructor",
+					"private-instance-method"
+				]
+			}
 		],
 		"no-arg": true,
+		"no-angle-bracket-type-assertion": true,
 		"no-bitwise": false,
 		"no-conditional-assignment": true,
-		"no-console": [
-			true,
-			"debug",
-			"info",
-			"time",
-			"timeEnd",
-			"trace"
-		],
+		"no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
 		"no-consecutive-blank-lines": [true, 2],
 		"no-construct": true,
 		"no-debugger": true,
@@ -60,10 +63,10 @@
 		"no-switch-case-fall-through": true,
 		"no-trailing-whitespace": true,
 		"no-unused-expression": true,
-		"no-unused-variable": true,
 		"no-use-before-declare": true,
 		"no-var-keyword": true,
 		"object-literal-sort-keys": false,
+		"object-literal-key-quotes": [true, "as-needed"],
 		"one-line": [
 			true,
 			"check-open-brace",
@@ -73,14 +76,13 @@
 			"check-whitespace"
 		],
 		"only-arrow-functions": [true, "allow-declarations"],
-		"quotemark": [
-			true,
-			"double",
-			"jsx-double",
-			"avoid-escape"
-		],
+		"arrow-return-shorthand": true,
+		"prefer-for-of": true,
+		"prefer-object-spread": true,
+		"quotemark": [true, "double", "avoid-escape"],
 		"radix": true,
 		"semicolon": [true, "always"],
+		"space-before-function-paren": [true, "never"],
 		"switch-default": true,
 		"trailing-comma": [
 			true,
@@ -89,10 +91,7 @@
 				"multiline": "always"
 			}
 		],
-		"triple-equals": [
-			true,
-			"allow-null-check"
-		],
+		"triple-equals": [true, "allow-null-check"],
 		"typedef-whitespace": [
 			true,
 			{
@@ -111,5 +110,9 @@
 			"check-operator",
 			"check-separator"
 		]
+	},
+	"jsRules": {
+		"indent": [true, "tabs"],
+		"object-literal-sort-keys": false
 	}
 }

@@ -6,15 +6,15 @@
 	"module": "./dist/Prando.es.js",
 	"types": "./dist/Prando.d.ts",
 	"scripts": {
-		"build": "rollup -c",
+		"build": "rimraf dist && rollup -c",
 		"build:declarations": "tsc -d",
 		"dev": "rollup -c -w",
 		"test": "jest --testMatch **/test/**/*-test-*.js",
-		"test:coverage": "npm run test -- --coverage",
-		"test:coverage:coveralls": "npm run test -- --coverage --coverageReporters=text-lcov | coveralls",
-		"test:watch": "npm run test -- --watchAll",
+		"test:coverage": "yarn test --coverage",
+		"test:coverage:coveralls": "yarn test --coverage --coverageReporters=text-lcov | coveralls",
+		"test:watch": "yarn test --watchAll",
 		"lint": "tslint -c tslint.json src/*.ts",
-		"prepublish": "npm run build && npm run build:declarations"
+		"prepublish": "yarn build && yarn build:declarations"
 	},
 	"repository": {
 		"type": "git",
@@ -42,6 +42,7 @@
 		"babel-jest": "^23.6.0",
 		"coveralls": "^3.0.2",
 		"jest": "^23.6.0",
+		"rimraf": "^2.6.2",
 		"rollup": "^0.67.4",
 		"rollup-plugin-typescript": "^1.0.0",
 		"tslint": "^5.11.0",

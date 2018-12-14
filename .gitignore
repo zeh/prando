@@ -1,11 +1,11 @@
+_*.bat
+_*.txt
+.coveralls.yml
+.nyc_output
+.rpt2_cache
 .tscache
 coverage
 dist
 node_modules
 npm-debug.log
-src/*.js
-src/*.d.ts
-_*.txt
-_*.bat
-.coveralls.yml
-.rpt2_cache
+temp

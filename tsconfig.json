@@ -7,11 +7,13 @@
 		"declaration": true,
 		"strict": true,
 		"removeComments": false,
-		"newLine": "LF"
+		"newLine": "LF",
+		"outDir": "temp/",
+		"declarationDir": "dist/"
 	},
-    "include": [
-        "src"
-    ],
+	"include": [
+		"src"
+	],
 	"exclude": [
 		"node_modules"
 	]

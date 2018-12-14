@@ -4,7 +4,7 @@
 	"description": "Deterministic pseudo-random number generator for JavaScript and TypeScript",
 	"main": "./dist/Prando.umd.js",
 	"module": "./dist/Prando.es.js",
-	"types": "./src/Prando.d.ts",
+	"types": "./dist/Prando.d.ts",
 	"scripts": {
 		"build": "rollup -c",
 		"build:declarations": "tsc -d",
@@ -16,11 +16,6 @@
 		"lint": "tslint -c tslint.json src/*.ts",
 		"prepublish": "npm run build && npm run build:declarations"
 	},
-	"files": [
-		"src/**/*.d.ts",
-		"dist",
-		"README.md"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/zeh/prando.git"

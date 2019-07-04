@@ -1,10 +1,9 @@
 before_install:
-  - npm set progress=false
-  - npm install
+  - yarn
 language: node_js
 node_js:
   - "node"
-  - "8"
-  - "9"
+  - "12"
+  - "11"
   - "10"
-script: npm run build && npm run test
+script: yarn run build && yarn run test

@@ -1,4 +1,5 @@
-import Prando from "./../../dist/Prando.umd";
+import PrandoES from "./../../dist/Prando.es";
+const PrandoUMD = require("./../../dist/Prando.umd");
 
 function tests() {
 	const rng = new Prando(237622);
@@ -22,7 +23,10 @@ function tests() {
 	console.log("min max:", min, max);
 }
 
-describe("Prando (ES6)", () => {
+describe("Prando (ES5)", () => all(PrandoUMD));
+describe("Prando (ES6)", () => all(PrandoES));
+
+function all(Prando) {
 	test("is a class", () => {
 		expect(Prando).not.toBe("function");
 	});
@@ -51,6 +55,23 @@ describe("Prando (ES6)", () => {
 		rng.reset();
 		expect(rng.next()).toEqual(num1);
 		expect(rng.next()).toEqual(num2);
+
+		// test defaults
+		let tries = 100;
+		let val;
+		let [defaultMin, defaultPseudoMax] = [0, 1];
+		let min = 0.8;
+		while(tries-- > 0) {
+			// only min
+			val = rng.next(min);
+			expect(val).toBeGreaterThanOrEqual(min);
+			expect(val).toBeLessThan(defaultPseudoMax);
+
+			// no values
+			val = rng.next();
+			expect(val).toBeGreaterThanOrEqual(defaultMin);
+			expect(val).toBeLessThan(defaultPseudoMax);
+		}
 	});
 
 	test("should create with a number seed", () => {
@@ -151,6 +172,23 @@ describe("Prando (ES6)", () => {
 		expect(anyFloat).toEqual(false);
 		expect(anyLower).toEqual(false);
 		expect(anyHigher).toEqual(false);
+
+		// test defaults
+		let tries = 100;
+		let val;
+		let [defaultMin, defaultMax] = [10, 100];
+		let min = 80;
+		while(tries-- > 0) {
+			// only min
+			val = rng.nextInt(min);
+			expect(val).toBeGreaterThanOrEqual(min);
+			expect(val).toBeLessThanOrEqual(defaultMax);
+
+			// no values
+			val = rng.nextInt();
+			expect(val).toBeGreaterThanOrEqual(defaultMin);
+			expect(val).toBeLessThanOrEqual(defaultMax);
+		}
 	});
 
 	test("should generate booleans", () => {
@@ -275,4 +313,4 @@ describe("Prando (ES6)", () => {
 		const p4 = new Prando("42");
 		expect(p3.nextInt(0, 100)).not.toEqual(p4.nextInt(0, 100));
 	});
-});
+}

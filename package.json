@@ -9,7 +9,7 @@
 		"build": "rimraf dist && rollup -c",
 		"build:declarations": "tsc -d",
 		"dev": "rollup -c -w",
-		"test": "jest --testMatch **/test/**/*-test-*.js",
+		"test": "jest --testMatch **/test/**/*.test.js",
 		"test:coverage": "yarn test --coverage",
 		"test:coverage:coveralls": "yarn test --coverage --coverageReporters=text-lcov | coveralls",
 		"test:watch": "yarn test --watchAll",

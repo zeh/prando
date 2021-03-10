@@ -83,7 +83,6 @@ export default class Prando {
 	 * @return The generated character.
 	 */
 	public nextChar(chars: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"): string {
-		this.recalculate();
 		return chars.substr(this.nextInt(0, chars.length - 1), 1);
 	}
 
@@ -99,7 +98,6 @@ export default class Prando {
 	 * @return An item from the array.
 	 */
 	public nextArrayItem<T>(array: T[]): T {
-		this.recalculate();
 		return array[this.nextInt(0, array.length - 1)];
 	}
 

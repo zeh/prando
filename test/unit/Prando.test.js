@@ -206,32 +206,32 @@ function all(Prando) {
 	test("should generate chars", () => {
 		let rng = new Prando(31338);
 
+		expect(rng.nextChar()).toEqual("Y");
 		expect(rng.nextChar()).toEqual("8");
-		expect(rng.nextChar()).toEqual("a");
 		rng.reset();
+		expect(rng.nextChar()).toEqual("Y");
 		expect(rng.nextChar()).toEqual("8");
-		expect(rng.nextChar()).toEqual("a");
 
 		rng.reset();
 		expect(rng.nextChar("a")).toEqual("a");
 		expect(rng.nextChar("_")).toEqual("_");
-		expect(rng.nextChar("123")).toEqual("2");
-		expect(rng.nextChar("123")).toEqual("1");
+		expect(rng.nextChar("12345")).toEqual("4");
+		expect(rng.nextChar("12345")).toEqual("3");
 	});
 
 	test("should generate strings", () => {
 		let rng = new Prando(31337);
 
-		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("Y7026ODdb8RCE3Gv");
+		expect(rng.nextString()).toEqual("VAVmsY0E8wfmkhKi");
 		rng.reset();
-		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("Y7026ODdb8RCE3Gv");
+		expect(rng.nextString()).toEqual("VAVmsY0E8wfmkhKi");
 
 		rng.reset();
 		expect(rng.nextString(1, "a")).toEqual("a");
 		expect(rng.nextString(2, "b")).toEqual("bb");
-		expect(rng.nextString(6, "123")).toEqual("231331");
+		expect(rng.nextString(6, "123")).toEqual("331122");
 	});
 
 	test("should get from an array", () => {
@@ -239,15 +239,15 @@ function all(Prando) {
 		const lst1 = ["1", "2", "3", "4", "5"];
 		const lst2 = ["a", "b", "c", "d", "e"];
 
+		expect(rng.nextArrayItem(lst1)).toEqual("3");
 		expect(rng.nextArrayItem(lst1)).toEqual("5");
-		expect(rng.nextArrayItem(lst1)).toEqual("4");
+
 		rng.reset();
+		expect(rng.nextArrayItem(lst2)).toEqual("c");
+		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("d");
-
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
-		expect(rng.nextArrayItem(lst2)).toEqual("e");
-		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
 	});

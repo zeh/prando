@@ -1,4 +1,5 @@
-import Prando from "./../../dist/Prando.umd";
+import PrandoES from "./../../dist/Prando.es";
+const PrandoUMD = require("./../../dist/Prando.umd");
 
 function tests() {
 	const rng = new Prando(237622);
@@ -22,7 +23,10 @@ function tests() {
 	console.log("min max:", min, max);
 }
 
-describe("Prando (ES6)", () => {
+describe("Prando (ES5)", () => all(PrandoUMD));
+describe("Prando (ES6)", () => all(PrandoES));
+
+function all(Prando) {
 	test("is a class", () => {
 		expect(Prando).not.toBe("function");
 	});
@@ -51,6 +55,23 @@ describe("Prando (ES6)", () => {
 		rng.reset();
 		expect(rng.next()).toEqual(num1);
 		expect(rng.next()).toEqual(num2);
+
+		// test defaults
+		let tries = 100;
+		let val;
+		let [defaultMin, defaultPseudoMax] = [0, 1];
+		let min = 0.8;
+		while(tries-- > 0) {
+			// only min
+			val = rng.next(min);
+			expect(val).toBeGreaterThanOrEqual(min);
+			expect(val).toBeLessThan(defaultPseudoMax);
+
+			// no values
+			val = rng.next();
+			expect(val).toBeGreaterThanOrEqual(defaultMin);
+			expect(val).toBeLessThan(defaultPseudoMax);
+		}
 	});
 
 	test("should create with a number seed", () => {
@@ -151,6 +172,23 @@ describe("Prando (ES6)", () => {
 		expect(anyFloat).toEqual(false);
 		expect(anyLower).toEqual(false);
 		expect(anyHigher).toEqual(false);
+
+		// test defaults
+		let tries = 100;
+		let val;
+		let [defaultMin, defaultMax] = [10, 100];
+		let min = 80;
+		while(tries-- > 0) {
+			// only min
+			val = rng.nextInt(min);
+			expect(val).toBeGreaterThanOrEqual(min);
+			expect(val).toBeLessThanOrEqual(defaultMax);
+
+			// no values
+			val = rng.nextInt();
+			expect(val).toBeGreaterThanOrEqual(defaultMin);
+			expect(val).toBeLessThanOrEqual(defaultMax);
+		}
 	});
 
 	test("should generate booleans", () => {
@@ -168,32 +206,32 @@ describe("Prando (ES6)", () => {
 	test("should generate chars", () => {
 		let rng = new Prando(31338);
 
+		expect(rng.nextChar()).toEqual("Y");
 		expect(rng.nextChar()).toEqual("8");
-		expect(rng.nextChar()).toEqual("a");
 		rng.reset();
+		expect(rng.nextChar()).toEqual("Y");
 		expect(rng.nextChar()).toEqual("8");
-		expect(rng.nextChar()).toEqual("a");
 
 		rng.reset();
 		expect(rng.nextChar("a")).toEqual("a");
 		expect(rng.nextChar("_")).toEqual("_");
-		expect(rng.nextChar("123")).toEqual("2");
-		expect(rng.nextChar("123")).toEqual("1");
+		expect(rng.nextChar("12345")).toEqual("4");
+		expect(rng.nextChar("12345")).toEqual("3");
 	});
 
 	test("should generate strings", () => {
 		let rng = new Prando(31337);
 
-		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("Y7026ODdb8RCE3Gv");
+		expect(rng.nextString()).toEqual("VAVmsY0E8wfmkhKi");
 		rng.reset();
-		expect(rng.nextString()).toEqual("72Od8C3vAmYEwmhi");
-		expect(rng.nextString()).toEqual("idImokfKzm6YNVs2");
+		expect(rng.nextString()).toEqual("Y7026ODdb8RCE3Gv");
+		expect(rng.nextString()).toEqual("VAVmsY0E8wfmkhKi");
 
 		rng.reset();
 		expect(rng.nextString(1, "a")).toEqual("a");
 		expect(rng.nextString(2, "b")).toEqual("bb");
-		expect(rng.nextString(6, "123")).toEqual("231331");
+		expect(rng.nextString(6, "123")).toEqual("331122");
 	});
 
 	test("should get from an array", () => {
@@ -201,15 +239,15 @@ describe("Prando (ES6)", () => {
 		const lst1 = ["1", "2", "3", "4", "5"];
 		const lst2 = ["a", "b", "c", "d", "e"];
 
+		expect(rng.nextArrayItem(lst1)).toEqual("3");
 		expect(rng.nextArrayItem(lst1)).toEqual("5");
-		expect(rng.nextArrayItem(lst1)).toEqual("4");
+
 		rng.reset();
+		expect(rng.nextArrayItem(lst2)).toEqual("c");
+		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("d");
-
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
-		expect(rng.nextArrayItem(lst2)).toEqual("e");
-		expect(rng.nextArrayItem(lst2)).toEqual("e");
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
 		expect(rng.nextArrayItem(lst2)).toEqual("a");
 	});
@@ -275,4 +313,4 @@ describe("Prando (ES6)", () => {
 		const p4 = new Prando("42");
 		expect(p3.nextInt(0, 100)).not.toEqual(p4.nextInt(0, 100));
 	});
-});
+}

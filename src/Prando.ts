@@ -1,7 +1,7 @@
 export default class Prando {
 
-	private static MIN: number = -2147483648; // Int32 min
-	private static MAX: number = 2147483647; // Int32 max
+	private static readonly MIN: number = -2147483648; // Int32 min
+	private static readonly MAX: number = 2147483647; // Int32 max
 
 	private _seed: number;
 	private _value: number = NaN;
@@ -13,13 +13,13 @@ export default class Prando {
 	/**
 	 * Generate a new Prando pseudo-random number generator.
 	 *
-	 * @param seed - A number or string seed that determines which pseudo-random number sequence will be created. Defaults to current time.
+	 * @param seed - A number or string seed that determines which pseudo-random number sequence will be created. Defaults to a random seed based on `Math.random()`.
 	 */
 	constructor(seed?: number | string) {
-		if (typeof (seed) === "string") {
+		if (typeof seed === "string") {
 			// String seed
 			this._seed = this.hashCode(seed);
-		} else if (typeof (seed) === "number") {
+		} else if (typeof seed === "number") {
 			// Numeric seed
 			this._seed = this.getSafeSeed(seed);
 		} else {
@@ -64,7 +64,7 @@ export default class Prando {
 	 * 1 in (char_length^string_length) chance of collision. For real unique string ids, always check for
 	 * pre-existing ids, or employ a robust GUID/UUID generator.
 	 *
-	 * @param length - Length of the strting to be generated.
+	 * @param length - Length of the string to be generated.
 	 * @param chars - Characters that are used when creating the random string. Defaults to all alphanumeric chars (A-Z, a-z, 0-9).
 	 * @return The generated string sequence.
 	 */
@@ -83,7 +83,6 @@ export default class Prando {
 	 * @return The generated character.
 	 */
 	public nextChar(chars: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"): string {
-		this.recalculate();
 		return chars.substr(this.nextInt(0, chars.length - 1), 1);
 	}
 
@@ -99,7 +98,6 @@ export default class Prando {
 	 * @return An item from the array.
 	 */
 	public nextArrayItem<T>(array: T[]): T {
-		this.recalculate();
 		return array[this.nextInt(0, array.length - 1)];
 	}
 
@@ -151,7 +149,7 @@ export default class Prando {
 		this._value = this.xorshift(this._value);
 	}
 
-	private xorshift(value: number) {
+	private xorshift(value: number): number {
 		// Xorshift*32
 		// Based on George Marsaglia's work: http://www.jstatsoft.org/v08/i14/paper
 		value ^= value << 13;
@@ -160,7 +158,7 @@ export default class Prando {
 		return value;
 	}
 
-	private map(val: number, minFrom: number, maxFrom: number, minTo: number, maxTo: number) {
+	private map(val: number, minFrom: number, maxFrom: number, minTo: number, maxTo: number): number {
 		return ((val - minFrom) / (maxFrom - minFrom)) * (maxTo - minTo) + minTo;
 	}
 
@@ -177,7 +175,7 @@ export default class Prando {
 		return this.getSafeSeed(hash);
 	}
 
-	private getSafeSeed(seed: number) {
+	private getSafeSeed(seed: number): number {
 		if (seed === 0) return 1;
 		return seed;
 	}

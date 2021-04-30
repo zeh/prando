@@ -46,6 +46,12 @@ Install Prando as a module dependency using NPM:
 npm install prando --save
 ```
 
+Or using Yarn:
+
+```shell
+yarn add prando
+```
+
 ## Usage
 
 Import:

@@ -2,12 +2,13 @@ _*.bat
 _*.txt
 .babelrc
 .coveralls.yml
-.eslintrc
+.eslintrc.js
 .gitattributes
 .nyc_output
 .travis.yml
 .tscache
 .vscode
+coverage
 node_modules
 npm-debug.log
 prettier.config.js

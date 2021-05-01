@@ -3,7 +3,6 @@ before_install:
 language: node_js
 node_js:
   - "node"
+  - "14"
   - "12"
-  - "11"
-  - "10"
 script: yarn run build && yarn run test
